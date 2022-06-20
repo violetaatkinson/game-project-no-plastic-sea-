@@ -1,0 +1,33 @@
+  canvas {
+     
+      margin-top: 20px;
+      margin-left: 15px;
+
+  }
+
+  html,
+  body {
+      height: 100%;
+      width: 100%;
+  }
+
+
+  #start-btn {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      margin-left: 15px;
+      padding: 15px 40px;
+      border-radius: 5px;
+      border-color: #3a6073; 
+      background: #3a7bd5;
+      background: -webkit-linear-gradient(to right, #3a7bd5, #3a6073);
+      background: linear-gradient(to right, #3a7bd5, #3a6073);
+      color: white;
+      font-size: 15px;
+      letter-spacing: 2.5px;
+      font-weight: 500;
+    
+  }
+
+  
