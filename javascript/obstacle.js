@@ -1,25 +1,26 @@
-class obstacle {
+class Obstacle {
     constructor(ctx) {
         this.ctx = ctx;
         this.w = 214;
         this.h = 113;
-        this.randomY = Math.random() * 200 + 30;
-        this.x = CANVAS_WIDTH /2;
+        this.y= Math.floor(Math.random() * (CANVAS_HEIGHT - 200) + 0);
+        this.x = 700 ;
         this.img = new Image();
         this.img.src = "/img/orca.png";
-        this.vx = -2;
-        this.vy =2
+        this.vx = -1.5;
+        this.vy = 2
 
+        
     }
 
     draw() {
-        this.ctx.drawImage(this.img, this.x, this.randomY, this.w, this.h)
+        this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
 
     }
 
     move() {
-       this.x -= vx
-        this.y += vy
+        this.x += this.vx
+       
 
     }
     

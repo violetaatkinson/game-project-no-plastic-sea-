@@ -2,9 +2,10 @@ class Game {
     constructor(ctx) {
         this.ctx = ctx;
         this.intervalId = null;
-        this.submarine = new Submarine(this.ctx);
         this.background = new Background(this.ctx);
+        
         this.obstacles = [];
+        this.submarine = new Submarine(this.ctx);
         this.tickObstacle = 0
     
 
@@ -17,8 +18,8 @@ class Game {
             this.move();
             this.tickObstacle++;
            
-            if (this.tickObstacle % 100 === 0) {
-                this.addObstacle();
+            if (this.tickObstacle % 300 === 0) {
+               this.addObstacle();
             }
         }, 1000 / 60)
     }
