@@ -6,7 +6,6 @@ const startBtn = document.getElementById('start-btn')
 startBtn.addEventListener('click', () => {
     if (game.intervalId === null) {  
       game.start()
-    } else {
-      game.stop()
+    
     }
   })

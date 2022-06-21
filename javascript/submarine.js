@@ -86,12 +86,6 @@ class Submarine {
   }
 
   draw() {
-    this.ctx.drawImage(
-      this.img,
-      this.x,
-      this.y,
-      this.w,
-      this.h
-    )
+    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
   }
 }

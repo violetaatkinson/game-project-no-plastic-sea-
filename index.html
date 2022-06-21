@@ -6,15 +6,24 @@
   <meta name="viewport" content="width=device-width">
   <title>canvas 2</title>
   <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fascinate&family=Roboto:wght@100;300;700;900&display=swap');
+    </style>
 </head>
 
 <body>
   
-  <canvas width="700" height="400"></canvas>
-  <button id="start-btn">START</button>
+  
+
+  <div class="container">
+    <h1>Let's save the ocean</h1>
+    <canvas id="canvas" class="canvas" width="700" height="400">></canvas>
+    <button id="start-btn" class="start-btn">START</button>
+</div>
+
   <script type="text/javascript" src="/javascript/constants.js"></script>
   <script type="text/javascript" src="/javascript/background.js"></script>
-  <script type="text/javascript" src="/javascript/orcas.js"></script>
+  <script type="text/javascript" src="/javascript/obstacle.js"></script>
   <script type="text/javascript" src="/javascript/submarine.js"></script>
   <script type="text/javascript" src="/javascript/game.js"></script>
   <script type="text/javascript" src="/javascript/index.js"></script>

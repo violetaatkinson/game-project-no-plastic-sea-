@@ -12,10 +12,17 @@
   }
 
 
+  body{
+    background: url("../img/water.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:0 ;
+  }
+
   #start-btn {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: row;
+      margin-top: 30px;
+     margin-bottom: 20px;
       margin-left: 15px;
       padding: 15px 40px;
       border-radius: 5px;
@@ -24,10 +31,24 @@
       background: -webkit-linear-gradient(to right, #3a7bd5, #3a6073);
       background: linear-gradient(to right, #3a7bd5, #3a6073);
       color: white;
-      font-size: 15px;
-      letter-spacing: 2.5px;
-      font-weight: 500;
+      font-size: 17px;
+      letter-spacing:3px;
+      font-weight: 300;
+      font-family: 'Fascinate', cursive;
     
   }
 
-  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 64px;
+    margin: 20px 0;
+    padding: -20px 30px;
+    font-family: 'Fascinate', cursive;
+    color: white;
+}
