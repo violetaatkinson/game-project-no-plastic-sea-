@@ -15,7 +15,7 @@ class Weapon {
         if (this.tickTorpedo > 5) {
             this.tickTorpedo = 0;
             if (!this.isReloading) {
-                this.torpedos.push(new Torpedo(this.ctx, this.shooter.x + this.shooter.w, this.shooter.y + this.shooter.h));
+                this.torpedos.push(new Torpedo(this.ctx, this.shooter.x + this.shooter.w - 20, this.shooter.y + this.shooter.h / 2));
                 this.torpedosCounter++;
             }
         }
