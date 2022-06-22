@@ -4,10 +4,12 @@ class Game {
         this.intervalId = null;
         this.background = new Background(this.ctx);
         this.trashes = [];
+        this.healths = [];
         this.obstacles = [];
         this.submarine = new Submarine(this.ctx);
         this.tickObstacle = 0;
         this.tickTrash = 0;
+        this.tickHealth = 0;
     
 
     }
@@ -19,6 +21,7 @@ class Game {
             this.move();
             this.tickObstacle++;
             this.tickTrash++;
+            this.tickHealth++;
            
             if (this.tickObstacle % 400 === 0) {
                 this.tickObstacle = 0;
@@ -28,6 +31,11 @@ class Game {
             if (this.tickTrash % 200 === 0) {
                 this.tickTrash = 0;
                 this.addTrash();
+             }
+
+             if (this.tickHealth % 400 === 0) {
+                this.tickHealth = 0;
+                this.modifyHealth();
              }
 
 
@@ -48,6 +56,7 @@ class Game {
         this.submarine.move();
         this.obstacles.forEach(obs => obs.move());
         this.trashes.forEach(trs => trs.move());
+        this.healths.forEach(hs => hs.move());
 
     }
 
@@ -55,9 +64,9 @@ class Game {
         this.background.draw();
         this.submarine.draw();
         this.obstacles.forEach(obs => obs.draw());
-        console.log(this.trashes)
         this.trashes.forEach(trs => trs.draw());
-
+        this.healths.forEach(hs => hs.draw());
+        
     }
 
     addObstacle() {
@@ -69,6 +78,12 @@ class Game {
         const trasharr = ['mask','can','water','coke', 'bag','garbage']
 
         this.trashes.push(new Trash(this.ctx, trasharr[Math.floor(Math.random() * trasharr.length)]))
+    }
+
+    modifyHealth(){
+        const healtharr = ['life','hazard']
+
+        this.healths.push(new Health(this.ctx, healtharr[Math.floor(Math.random() * healtharr.length)]))
     }
 
 }
