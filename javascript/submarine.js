@@ -15,17 +15,20 @@ class Submarine {
       up: false,
       down: false,
       left: false,
-      right: false
+      right: false,
+      enter: false
     }
 
 
     this._setListeners()
+    this.weapon = new Weapon(this)
   }
 
   move() {
     this._applyActions()
     this.x += this.vx;
     this.y += this.vy;
+    this.weapon.move();
   }
 
   _setListeners() {
@@ -47,17 +50,17 @@ class Submarine {
       this.vy = 0;
 
     }
-    
-    
-    if(this.actions.right) {
-      if (this.x  + this.w >= this.ctx.canvas.width){
+
+
+    if (this.actions.right) {
+      if (this.x + this.w >= this.ctx.canvas.width) {
         this.vx = 0;
-      } else{
+      } else {
         this.vx = 2
-      
+
       }
-      
-    } else if(this.actions.left){
+
+    } else if (this.actions.left) {
       if (this.x <= 0) {
         this.vx = 0
       } else {
@@ -65,6 +68,11 @@ class Submarine {
       }
     } else {
       this.vx = 0
+    }
+
+
+    if (this.actions.enter) {
+      this.weapon.shoot();
     }
   }
 
@@ -82,10 +90,14 @@ class Submarine {
       case DOWN:
         this.actions.down = apply
         break;
+      case ENTER:
+        this.actions.enter = apply
+        break;
     }
   }
 
   draw() {
     this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
+    this.weapon.draw()
   }
 }

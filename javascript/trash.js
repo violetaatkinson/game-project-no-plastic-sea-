@@ -1,8 +1,9 @@
 class Trash {
-    constructor(ctx, type, vy = +2) {
+    constructor(ctx, type,) {
         this.ctx = ctx;
         this.y = 0 - this.h;
         this.x = 247;
+        this.vy = +2;
 
         this.types = {
             // key: [url img, width, height, x, y]
@@ -16,7 +17,7 @@ class Trash {
 
         this.img = new Image();
         this.img.src = this.types[type][0];
-        this.vy = vy;
+        
     }
 
     draw() { 
