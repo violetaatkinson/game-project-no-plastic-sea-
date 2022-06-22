@@ -25,7 +25,7 @@ class Game {
                this.addObstacle();
             }
 
-            if (this.tickTrash % 300 === 0) {
+            if (this.tickTrash % 200 === 0) {
                 this.tickTrash = 0;
                 this.addTrash();
              }
@@ -55,6 +55,7 @@ class Game {
         this.background.draw();
         this.submarine.draw();
         this.obstacles.forEach(obs => obs.draw());
+        console.log(this.trashes)
         this.trashes.forEach(trs => trs.draw());
 
     }
@@ -65,20 +66,9 @@ class Game {
     }
 
     addTrash() {
-        this.trashes.push
-        (
-            new Trash(this.ctx, 'mask'),
-            new Trash(this.ctx, 'can'),
-            new Trash(this.ctx, 'water'),
-            new Trash(this.ctx, 'coke'),
-            new Trash(this.ctx, 'bag'),
-            new Trash(this.ctx, 'garbage'),
-        )
-    }
+        const trasharr = ['mask','can','water','coke', 'bag','garbage']
 
-    pickRandomTrash(trashes){
-         return this.trashes[Math.floor(Math.random() * trashes.length)];
-        
+        this.trashes.push(new Trash(this.ctx, trasharr[Math.floor(Math.random() * trasharr.length)]))
     }
 
 }
