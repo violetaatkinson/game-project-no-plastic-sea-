@@ -52,3 +52,17 @@ h1{
     font-family: 'Fascinate', cursive;
     color: white;
 }
+
+#hearts{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -495px;
+    margin-left: -490px;
+    
+}
+  .life{
+    width: 24px;
+    height: 24px;
+  }

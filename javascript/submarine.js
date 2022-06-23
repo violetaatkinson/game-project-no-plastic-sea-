@@ -11,6 +11,9 @@ class Submarine {
     this.vx = 0;
     this.vy = 0;
 
+    this.health = 1200;
+    this.damage = 50;
+
     this.actions = {
       up: false,
       down: false,
@@ -94,6 +97,10 @@ class Submarine {
         this.actions.enter = apply
         break;
     }
+  }
+
+  receiveDamage(damage) {
+    this.health -= damage
   }
 
   draw() {
