@@ -10,6 +10,9 @@ class Game {
 		this.tickObstacle = 0;
 		this.tickTrash = 0;
 		this.tickHealth = 0;
+
+		this.sound = new Audio();
+        this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
 	}
 
 	start() {
@@ -17,6 +20,7 @@ class Game {
 			this.clear();
 			this.draw();
 			this.checkCollisions();
+			this.sound.play();
 			this.move();
 			this.tickObstacle++;
 			this.tickTrash++;
