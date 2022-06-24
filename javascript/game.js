@@ -10,12 +10,9 @@ class Game {
 		this.tickObstacle = 0;
 		this.tickTrash = 0;
 		this.tickHealth = 0;
-		
-		var score = 0;
-		
 
 		this.sound = new Audio();
-        this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
+		this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
 
 	}
 
@@ -108,7 +105,23 @@ class Game {
 				this.trashes.splice(index, 1);
 			}
 		});
+
+
+		this.obstacles.forEach(obs => {
+			if (obs.collide(this.submarine)) {
+				this.submarine.receiveDamage(1)
+			} else {
+				return this.gameOver()
+			}
+		})
 	}
 
+	gameOver() {
+		clearInterval(this.intervalId);
+		this.intervalId = null;
+		this.ctx.font = "30px Arial";
+		this.ctx.fillStyle = "white";
+		this.ctx.textAlign = "center";
+		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 2);
+	}
 }
-

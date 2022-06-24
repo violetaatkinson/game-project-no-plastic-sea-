@@ -11,8 +11,8 @@ class Submarine {
     this.vx = 0;
     this.vy = 0;
 
-    this.health = 1200;
-    this.damage = 50;
+    this.health = 7;
+    this.damage = 1;
 
     this.actions = {
       up: false,
@@ -101,6 +101,13 @@ class Submarine {
 
   receiveDamage(damage) {
     this.health -= damage
+
+    if (this.health > 0) {
+      return this.health
+    } else {
+      this.gameOver()
+    }
+
   }
 
   draw() {
