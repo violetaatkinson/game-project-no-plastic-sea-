@@ -102,12 +102,6 @@ class Submarine {
   receiveDamage(damage) {
     this.health -= damage
 
-    if (this.health > 0) {
-      return this.health
-    } else {
-      this.gameOver()
-    }
-
   }
 
   draw() {

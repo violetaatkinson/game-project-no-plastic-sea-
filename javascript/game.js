@@ -110,11 +110,22 @@ class Game {
 		this.obstacles.forEach(obs => {
 			if (obs.collide(this.submarine)) {
 				this.submarine.receiveDamage(1)
-			} else {
-				return this.gameOver()
-			}
+			} if(this.submarine.health <= 0) {
+				this.endGame()
+				this.gameOver()
+			  }
 		})
 	}
+	
+	endGame() {
+        clearInterval(this.intervalId);
+        this.intervalId = null;
+
+        this.ctx.beginPath();
+        this.ctx.fillStyle = 'black'
+        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+        this.ctx.closePath();
+    } 
 
 	gameOver() {
 		clearInterval(this.intervalId);
@@ -122,6 +133,6 @@ class Game {
 		this.ctx.font = "30px Arial";
 		this.ctx.fillStyle = "white";
 		this.ctx.textAlign = "center";
-		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 2);
+		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height /3);
 	}
 }
