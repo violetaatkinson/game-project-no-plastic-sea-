@@ -100,8 +100,16 @@ class Submarine {
   }
 
   receiveDamage(damage) {
-    this.health -= damage
-
+    if(!this.receivingDamage) {
+      this.receivingDamage = true;
+      this.health -= damage
+    
+      setTimeout(() => {
+        this.receivingDamage = false;
+      }, 3000);
+    
+      return this.health
+    }
   }
 
   draw() {
