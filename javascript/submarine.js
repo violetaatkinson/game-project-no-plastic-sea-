@@ -12,7 +12,7 @@ class Submarine {
     this.vy = 0;
 
     this.health = 7;
-    this.damage = 1;
+    this.strenght = 1;
 
     this.actions = {
       up: false,

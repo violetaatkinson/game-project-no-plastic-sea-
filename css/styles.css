@@ -65,4 +65,9 @@ h1{
   .life{
     width: 24px;
     height: 24px;
+ 
+  }
+
+  .visibility {
+    visibility: hidden;
   }

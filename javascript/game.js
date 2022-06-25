@@ -109,6 +109,7 @@ class Game {
 
 		this.obstacles.forEach(obs => {
 			if (obs.collide(this.submarine)) {
+				console.log(obs.collide(this.submarine))
 				this.submarine.receiveDamage(1)
 			} if(this.submarine.health <= 0) {
 				this.endGame()
