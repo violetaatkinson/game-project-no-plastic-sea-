@@ -10,7 +10,7 @@ class Game {
 		this.tickObstacle = 0;
 		this.tickTrash = 0;
 		this.tickHealth = 0;
-
+		this.score = 0;
 		this.sound = new Audio();
 		this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
 
@@ -107,9 +107,14 @@ class Game {
 		});
 
 
-		this.obstacles.forEach(obs => {
+		this.obstacles.forEach((obs,index) => {
 			if (obs.collide(this.submarine)) {
-				console.log(obs.collide(this.submarine))
+				this.obstacles.splice(index,1)
+			
+				const lifes = document.querySelectorAll('.life')
+				const lifesLength = lifes.length
+				lifes[lifesLength -1].remove()
+				console.log('message')
 				this.submarine.receiveDamage(1)
 			} if(this.submarine.health <= 0) {
 				this.endGame()
@@ -137,3 +142,7 @@ class Game {
 		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height /3);
 	}
 }
+
+// check collison anadir una nueva vida al submarino = this.sumarine.health++
+// conseguir collison con un corazon tipo lo del carrito crear un corazon 
+// 
