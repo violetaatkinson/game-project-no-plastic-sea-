@@ -22,6 +22,7 @@ class Game {
 			this.draw();
 			this.checkCollisions();
 			this.sound.play();
+			console.log(this.score)
 			this.move();
 			this.tickObstacle++;
 			this.tickTrash++;
@@ -91,7 +92,30 @@ class Game {
 		);
 	}
 
+	
+	createLife() {
+		if(this.submarine.health < 7) {
+			const containerHearts = document.getElementById('hearts')
+			const newLife = document.createElement('img')
+			newLife.classList.add('life')
+			newLife.src = '/img/life.png'
+			newLife.alt = 'life'
+			containerHearts.appendChild(newLife)
+			this.submarine.health++
+		}
+		
+	}
+
+	removeLife() {
+		const lifes = document.querySelectorAll('.life')
+		const lifesLength = lifes.length
+		lifes[lifesLength - 1].remove()
+		this.submarine.receiveDamage(1)
+
+	}
+
 	checkCollisions() {
+		// trashes colison and erases trash and torpedo
 		this.trashes.forEach((trs, index) => {
 			const prevTorpedosLength = this.submarine.weapon.torpedos.length;
 
@@ -106,61 +130,42 @@ class Game {
 			}
 		});
 
+		// submarine colision with hearts and toxins
+		this.healths.forEach((hls,index) => {
+			if (hls.collide(this.submarine) && hls.type === 'life') {
+				this.healths.splice(index, 1)
+				this.createLife()
+			} else if (hls.collide(this.submarine) && hls.type === 'hazard') {
+				this.healths.splice(index, 1)
+				this.removeLife()
+			}
+		})
 
-		this.obstacles.forEach((obs,index) => {
+       // sumarine colision with whale less life and erase whale
+		this.obstacles.forEach((obs, index) => {
 			if (obs.collide(this.submarine)) {
-				this.obstacles.splice(index,1)
-				const lifes = document.querySelectorAll('.life')
-				const lifesLength = lifes.length
-				lifes[lifesLength -1].remove()
-
-						
-				//creo una nueva vida
-				const containerHearts = document.getElementById('hearts')
-				const newLife = document.createElement('img')
-				newLife.classList.add('life visibility')
-				newLife.src = '/img/life.png'
-				newLife.alt = 'life'
-				containerHearts.appendChild(newLife)
-
-				//<img class ="life visibility" src="/img/life.png" alt="life">
-
-				const life =[]
-				const hazard =[]
-				this.healths.forEach((hls,index) => {
-				if(hls === 'life') {
-					this.life.push()
-					
-				} else {
-					this.hazard.push()
-					
-				}
-				console.log(hazard)
-				console.log(life)
-				})	
-				
-
-			
-
+				this.obstacles.splice(index, 1)
+				this.removeLife()
 
 				console.log('message')
-				this.submarine.receiveDamage(1)
-			} if(this.submarine.health <= 0) {
+				
+			}
+			if (this.submarine.health <= 0) {
 				this.endGame()
 				this.gameOver()
-			  }
+			}
 		})
 	}
-	
-	endGame() {
-        clearInterval(this.intervalId);
-        this.intervalId = null;
 
-        this.ctx.beginPath();
-        this.ctx.fillStyle = 'black'
-        this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        this.ctx.closePath();
-    } 
+	endGame() {
+		clearInterval(this.intervalId);
+		this.intervalId = null;
+
+		this.ctx.beginPath();
+		this.ctx.fillStyle = 'black'
+		this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+		this.ctx.closePath();
+	}
 
 	gameOver() {
 		clearInterval(this.intervalId);
@@ -168,10 +173,6 @@ class Game {
 		this.ctx.font = "30px Arial";
 		this.ctx.fillStyle = "white";
 		this.ctx.textAlign = "center";
-		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height /3);
+		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 3);
 	}
 }
-
-// check collison anadir una nueva vida al submarino = this.sumarine.health++
-// conseguir collison con un corazon tipo lo del carrito crear un corazon 
-// 
