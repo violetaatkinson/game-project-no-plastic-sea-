@@ -110,10 +110,39 @@ class Game {
 		this.obstacles.forEach((obs,index) => {
 			if (obs.collide(this.submarine)) {
 				this.obstacles.splice(index,1)
-			
 				const lifes = document.querySelectorAll('.life')
 				const lifesLength = lifes.length
 				lifes[lifesLength -1].remove()
+
+						
+				//creo una nueva vida
+				const containerHearts = document.getElementById('hearts')
+				const newLife = document.createElement('img')
+				newLife.classList.add('life visibility')
+				newLife.src = '/img/life.png'
+				newLife.alt = 'life'
+				containerHearts.appendChild(newLife)
+
+				//<img class ="life visibility" src="/img/life.png" alt="life">
+
+				const life =[]
+				const hazard =[]
+				this.healths.forEach((hls,index) => {
+				if(hls === 'life') {
+					this.life.push()
+					
+				} else {
+					this.hazard.push()
+					
+				}
+				console.log(hazard)
+				console.log(life)
+				})	
+				
+
+			
+
+
 				console.log('message')
 				this.submarine.receiveDamage(1)
 			} if(this.submarine.health <= 0) {
