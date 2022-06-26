@@ -76,6 +76,7 @@ class Submarine {
 
     if (this.actions.enter) {
       this.weapon.shoot();
+      
     }
   }
 

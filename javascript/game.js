@@ -75,6 +75,7 @@ class Game {
 		this.trashes.push(
 			new Trash(this.ctx, trasharr[Math.floor(Math.random() * trasharr.length)])
 		);
+
 	}
 
 	clearTrashes() {
@@ -106,6 +107,14 @@ class Game {
 		
 	}
 
+	removePoints(){
+		if(this.submarine.weapon.torpedo) {
+			
+			this.score -= 5;
+		}
+		console.log(this.score)
+	}
+
 	removeLife() {
 		const lifes = document.querySelectorAll('.life')
 		const lifesLength = lifes.length
@@ -122,11 +131,16 @@ class Game {
 			this.submarine.weapon.torpedos = this.submarine.weapon.torpedos.filter(
 				(torpedo) => {
 					return !trs.collideWidth(torpedo);
+					
 				}
 			);
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				this.trashes.splice(index, 1);
+				 this.score += 10
+				 console.log(this.score)
+				
+				
 			}
 		});
 
