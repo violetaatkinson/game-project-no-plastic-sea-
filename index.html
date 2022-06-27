@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Let's save the ocean</title>
+		<link href="/css/styles.css" rel="stylesheet" type="text/css" />
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+		</style>
+	</head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Let's save the ocean</title>
-  <link href="/css/styles.css" rel="stylesheet" type="text/css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-    </style>
-   </head>
+	<body>
+		<canvas id="canvas" class="canvas" width="700" height="400"> </canvas>
+		<div id="game-board">
+			<div id="data-board" class="visibility">
+				<div id="hearts">
+					<img class="life" src="/img/life.png" alt="life" />
+					<img class="life" src="/img/life.png" alt="life" />
+					<img class="life" src="/img/life.png" alt="life" />
+					<img class="life" src="/img/life.png" alt="life" />
+					<img class="life" src="/img/life.png" alt="life" />
+					<img class="life" src="/img/life.png" alt="life" />
+					<img class="life" src="/img/life.png" alt="life" />
+				</div>
+				<div class="score">POINTS: <span id="points">0</span></div>
+			</div>
 
-<body>
-  
-  
-  
-    <canvas id="canvas" class="canvas" width="700" height="400">
-    </canvas>
-    <div id="game-board">
-      <div id="data-board">
-        <div id="hearts">
-          <img class="life visibility" src="/img/life.png" alt="life"/>
-          <img class ="life visibility" src="/img/life.png" alt="life"/>
-          <img class ="life visibility" src="/img/life.png" alt="life"/>
-          <img class ="life visibility" src="/img/life.png" alt="life"/>
-          <img class ="life visibility" src="/img/life.png" alt="life"/>
-          <img class ="life visibility" src="/img/life.png" alt="life"/>
-          <img class ="life visibility" src="/img/life.png" alt="life"/>
+      <div id="buttons-board">
+        <div>
+          <h1>Let's save the ocean</h1>
         </div>
-        <div class="score visibility">POINTS: <span id="points">0</span></div>
+        <div id="buttons">
+          <button id="start-btn" class="start-btn">PLAY</button>
+          <button id="start-btn" class="start-btn">ABOUT</button>
+          <button id="start-btn" class="start-btn">START</button>
+        </div>
       </div>
-        
-     <div>
-      <h1 class ="invisible">Let's save the ocean</h1>
-     </div>
-     <div class ="invisible" id="buttons">
-       <button id="start-btn" class="start-btn">PLAY</button>
-       <button id="start-btn" class="start-btn">ABOUT</button>
-       <button id="start-btn" class="start-btn">START</button>
-     </div>
-    </div>
+		</div>
 
-
-
-  <script type="text/javascript" src="/javascript/constants.js"></script>
-  <script type="text/javascript" src="/javascript/background.js"></script>
-  <script type="text/javascript" src="/javascript/obstacle.js"></script>
-  <script type="text/javascript" src="/javascript/trash.js"></script>
-  <script type="text/javascript" src="/javascript/health.js"></script>
-  <script type="text/javascript" src="/javascript/submarine.js"></script>
-  <script type="text/javascript" src="/javascript/weapon.js"></script>
-  <script type="text/javascript" src="/javascript/torpedo.js"></script>
-  <script type="text/javascript" src="/javascript/game.js"></script>
-  <script type="text/javascript" src="/javascript/index.js"></script>
-</body>
-
+		<script type="text/javascript" src="/javascript/constants.js"></script>
+		<script type="text/javascript" src="/javascript/background.js"></script>
+		<script type="text/javascript" src="/javascript/obstacle.js"></script>
+		<script type="text/javascript" src="/javascript/turtle.js"></script>
+		<script type="text/javascript" src="/javascript/seal.js"></script>
+		<script type="text/javascript" src="/javascript/trash.js"></script>
+		<script type="text/javascript" src="/javascript/health.js"></script>
+		<script type="text/javascript" src="/javascript/submarine.js"></script>
+		<script type="text/javascript" src="/javascript/weapon.js"></script>
+		<script type="text/javascript" src="/javascript/torpedo.js"></script>
+		<script type="text/javascript" src="/javascript/game.js"></script>
+		<script type="text/javascript" src="/javascript/index.js"></script>
+	</body>
 </html>

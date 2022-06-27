@@ -7,11 +7,7 @@
     width: 700px;
     height: 400px;
     margin-left: 15px;
-  }
-
-  #game-board {
     border: 10px solid red;
-
   }
 
   #data-board {
@@ -19,8 +15,7 @@
     justify-content: space-between;
   }
 
-  html,
-  body {
+  html {
     height: 100%;
     width: 100%;
   }
@@ -56,7 +51,6 @@
     letter-spacing: 1.5px;
     font-weight: 400;
     font-family: 'Press Start 2P', cursive;
-
   }
 
   #buttons {

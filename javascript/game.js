@@ -6,8 +6,10 @@ class Game {
 		this.trashes = [];
 		this.healths = [];
 		this.obstacles = [];
+		this.turtles = []
 		this.submarine = new Submarine(this.ctx);
 		this.tickObstacle = 0;
+		this.tickTurtle = 0;
 		this.tickTrash = 0;
 		this.tickHealth = 0;
 		this.score = 0;
@@ -25,6 +27,7 @@ class Game {
 			console.log(this.score)
 			this.move();
 			this.tickObstacle++;
+			this.tickTurtle++;
 			this.tickTrash++;
 			this.tickHealth++;
 
@@ -32,6 +35,13 @@ class Game {
 				this.tickObstacle = 0;
 				this.addObstacle();
 			}
+
+			if (this.tickTurtle % 300 === 0) {
+				this.tickTurtle = 0;
+				console.log('start')
+				this.addTurtle();
+			}
+
 
 			if (this.tickTrash % 180 === 0) {
 				this.tickTrash = 0;
@@ -53,6 +63,7 @@ class Game {
 		this.background.move();
 		this.submarine.move();
 		this.obstacles.forEach((obs) => obs.move());
+		this.turtles.forEach((turs) => turs.move());
 		this.trashes.forEach((trs) => trs.move());
 		this.healths.forEach((hs) => hs.move());
 	}
@@ -61,12 +72,19 @@ class Game {
 		this.background.draw();
 		this.submarine.draw();
 		this.obstacles.forEach((obs) => obs.draw());
+		this.turtles.forEach((turs) => turs.draw());
 		this.trashes.forEach((trs) => trs.draw());
 		this.healths.forEach((hs) => hs.draw());
 	}
 
 	addObstacle() {
 		this.obstacles.push(new Obstacle(this.ctx));
+	}
+
+	addTurtle() {
+		console.log('addTurtle entro')
+		this.turtles.push(new Turtles(this.ctx));
+		
 	}
 
 	addTrash() {
@@ -131,16 +149,12 @@ class Game {
 			this.submarine.weapon.torpedos = this.submarine.weapon.torpedos.filter(
 				(torpedo) => {
 					return !trs.collideWidth(torpedo);
-					
 				}
 			);
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				this.trashes.splice(index, 1);
 				 this.score += 10
-				 console.log(this.score)
-				
-				
 			}
 		});
 
@@ -167,6 +181,20 @@ class Game {
 			if (this.submarine.health <= 0) {
 				this.endGame()
 				this.gameOver()
+			}
+		})
+
+		this.turtles.filter(tur => !tur.isFree).forEach((tur, index) => {
+			const prevTorpedosLength = this.submarine.weapon.torpedos.length;
+			this.submarine.weapon.torpedos = this.submarine.weapon.torpedos.filter(
+				(torpedo) => {
+					return !tur.collide(torpedo);
+				}
+			);
+
+			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
+				tur.isFree = true;
+				this.score += 10
 			}
 		})
 	}
