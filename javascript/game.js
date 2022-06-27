@@ -36,9 +36,9 @@ class Game {
 				this.addObstacle();
 			}
 
+
 			if (this.tickTurtle % 300 === 0) {
 				this.tickTurtle = 0;
-				console.log('start')
 				this.addTurtle();
 			}
 
@@ -63,7 +63,7 @@ class Game {
 		this.background.move();
 		this.submarine.move();
 		this.obstacles.forEach((obs) => obs.move());
-		this.turtles.forEach((turs) => turs.move());
+		this.turtles.forEach((tur) => tur.move());
 		this.trashes.forEach((trs) => trs.move());
 		this.healths.forEach((hs) => hs.move());
 	}
@@ -72,7 +72,7 @@ class Game {
 		this.background.draw();
 		this.submarine.draw();
 		this.obstacles.forEach((obs) => obs.draw());
-		this.turtles.forEach((turs) => turs.draw());
+		this.turtles.forEach((tur) => tur.draw());
 		this.trashes.forEach((trs) => trs.draw());
 		this.healths.forEach((hs) => hs.draw());
 	}
@@ -82,10 +82,10 @@ class Game {
 	}
 
 	addTurtle() {
-		console.log('addTurtle entro')
-		this.turtles.push(new Turtles(this.ctx));
+	this.turtles.push(new Turtles(this.ctx));
 		
 	}
+
 
 	addTrash() {
 		const trasharr = ["mask", "can", "water", "coke", "bag", "garbage"];
@@ -216,5 +216,7 @@ class Game {
 		this.ctx.fillStyle = "white";
 		this.ctx.textAlign = "center";
 		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 3);
+		const dataBoardNode = document.getElementById("data-board");
+		dataBoardNode.classList.add('visibility');
 	}
 }

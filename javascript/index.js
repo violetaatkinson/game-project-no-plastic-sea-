@@ -6,7 +6,7 @@ const containerHearts = document.getElementById('hearts')
 const buttonsBoardNode = document.getElementById('buttons-board');
 const dataBoardNode = document.getElementById("data-board");
 
-startBtn.addEventListener('click', (life, point) => {
+startBtn.addEventListener('click', () => {
   if (game.intervalId === null) {
     buttonsBoardNode.classList.add('visibility');
     dataBoardNode.classList.remove('visibility');

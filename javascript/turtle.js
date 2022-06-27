@@ -10,7 +10,6 @@ class Turtles {
 		this.plasticImg = new Image();
 		this.plasticImg.src = "/img/plastic.png";
 		this.vx = -1.5;
-		this.vy = 2;
 		this.isFree = false;
 	}
 
