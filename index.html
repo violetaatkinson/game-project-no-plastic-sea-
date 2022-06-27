@@ -14,24 +14,34 @@
 <body>
   
   
-
-  <div class="container">
-    <h1>Let's save the ocean</h1>
-    <canvas id="canvas" class="canvas" width="700" height="400">></canvas>
-    <button id="start-btn" class="start-btn">START</button>
-  <p class="score visibility ">POINTS: <span id="points">0</span></p>
   
+    <canvas id="canvas" class="canvas" width="700" height="400">
+    </canvas>
+    <div id="game-board">
+      <div id="data-board">
+        <div id="hearts">
+          <img class="life visibility" src="/img/life.png" alt="life"/>
+          <img class ="life visibility" src="/img/life.png" alt="life"/>
+          <img class ="life visibility" src="/img/life.png" alt="life"/>
+          <img class ="life visibility" src="/img/life.png" alt="life"/>
+          <img class ="life visibility" src="/img/life.png" alt="life"/>
+          <img class ="life visibility" src="/img/life.png" alt="life"/>
+          <img class ="life visibility" src="/img/life.png" alt="life"/>
+        </div>
+        <div class="score visibility">POINTS: <span id="points">0</span></div>
+      </div>
+        
+     <div>
+      <h1 class ="invisible">Let's save the ocean</h1>
+     </div>
+     <div class ="invisible" id="buttons">
+       <button id="start-btn" class="start-btn">PLAY</button>
+       <button id="start-btn" class="start-btn">ABOUT</button>
+       <button id="start-btn" class="start-btn">START</button>
+     </div>
     </div>
 
- <div id="hearts">
-  <img class="life visibility" src="/img/life.png" alt="life">
-  <img class ="life visibility" src="/img/life.png" alt="life">
-  <img class ="life visibility" src="/img/life.png" alt="life">
-  <img class ="life visibility" src="/img/life.png" alt="life">
-  <img class ="life visibility" src="/img/life.png" alt="life">
-  <img class ="life visibility" src="/img/life.png" alt="life">
-  <img class ="life visibility" src="/img/life.png" alt="life">
-</div>
+
 
   <script type="text/javascript" src="/javascript/constants.js"></script>
   <script type="text/javascript" src="/javascript/background.js"></script>
