@@ -27,6 +27,10 @@ class Health {
         this.y += this.vy
     }
 
+    isVisible() {
+        return this.x + this.w >= 0
+    }
+
     collide(el) {
         const collideX = el.x + el.w > this.x && el.x < this.x + this.w
         const collideY = el.y < this.y + this.h && el.y + el.h > this.y

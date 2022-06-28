@@ -3,15 +3,21 @@ class Game {
 		this.ctx = ctx;
 		this.intervalId = null;
 		this.background = new Background(this.ctx);
+
+		//New arrays of objects
 		this.trashes = [];
 		this.healths = [];
 		this.obstacles = [];
 		this.turtles = []
+
 		this.submarine = new Submarine(this.ctx);
+
+		// Count of objects
 		this.tickObstacle = 0;
 		this.tickTurtle = 0;
 		this.tickTrash = 0;
 		this.tickHealth = 0;
+
 		this.score = 0;
 		this.sound = new Audio();
 		this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
@@ -24,8 +30,9 @@ class Game {
 			this.draw();
 			this.checkCollisions();
 			this.sound.play();
-			console.log(this.score)
 			this.move();
+
+			// When start go adding objects
 			this.tickObstacle++;
 			this.tickTurtle++;
 			this.tickTrash++;
@@ -77,13 +84,15 @@ class Game {
 		this.healths.forEach((hs) => hs.draw());
 	}
 
+
+	//add arrays
 	addObstacle() {
 		this.obstacles.push(new Obstacle(this.ctx));
 	}
 
 	addTurtle() {
-	this.turtles.push(new Turtles(this.ctx));
-		
+		this.turtles.push(new Turtles(this.ctx));
+
 	}
 
 
@@ -96,9 +105,6 @@ class Game {
 
 	}
 
-	clearTrashes() {
-		this.trashes = this.trashes.filter((trs) => trs.isVisible());
-	}
 
 	modifyHealth() {
 		const healtharr = ["life", "hazard"];
@@ -111,9 +117,17 @@ class Game {
 		);
 	}
 
-	
+
+	clearArays() {
+		this.trashes = this.trashes.filter((trs) => trs.isVisible());
+		this.obstacles = this.obstacles.filter((obs) => obs.isVisible());
+		this.healths = this.healths.filter((hls) => hls.isVisible())
+		this.turtles = this.turtles.filter((tur) => tur.isVisible())
+	}
+
+
 	createLife() {
-		if(this.submarine.health < 7) {
+		if (this.submarine.health < 7) {
 			const containerHearts = document.getElementById('hearts')
 			const newLife = document.createElement('img')
 			newLife.classList.add('life')
@@ -122,16 +136,9 @@ class Game {
 			containerHearts.appendChild(newLife)
 			this.submarine.health++
 		}
-		
+
 	}
 
-	removePoints(){
-		if(this.submarine.weapon.torpedo) {
-			
-			this.score -= 5;
-		}
-		console.log(this.score)
-	}
 
 	removeLife() {
 		const lifes = document.querySelectorAll('.life')
@@ -154,12 +161,12 @@ class Game {
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				this.trashes.splice(index, 1);
-				 this.score += 10
+				this.score += 10
 			}
 		});
 
 		// submarine colision with hearts and toxins
-		this.healths.forEach((hls,index) => {
+		this.healths.forEach((hls, index) => {
 			if (hls.collide(this.submarine) && hls.type === 'life') {
 				this.healths.splice(index, 1)
 				this.createLife()
@@ -169,14 +176,14 @@ class Game {
 			}
 		})
 
-       // sumarine colision with whale less life and erase whale
+		// sumarine colision with whale less life and erase whale
 		this.obstacles.forEach((obs, index) => {
 			if (obs.collide(this.submarine)) {
 				this.obstacles.splice(index, 1)
 				this.removeLife()
 
 				console.log('message')
-				
+
 			}
 			if (this.submarine.health <= 0) {
 				this.endGame()
@@ -184,6 +191,7 @@ class Game {
 			}
 		})
 
+		// sumarine colision with turtles and frees them from plastic 
 		this.turtles.filter(tur => !tur.isFree).forEach((tur, index) => {
 			const prevTorpedosLength = this.submarine.weapon.torpedos.length;
 			this.submarine.weapon.torpedos = this.submarine.weapon.torpedos.filter(
@@ -199,10 +207,10 @@ class Game {
 		})
 	}
 
+	// When game over all canvas becomes black
 	endGame() {
 		clearInterval(this.intervalId);
 		this.intervalId = null;
-
 		this.ctx.beginPath();
 		this.ctx.fillStyle = 'black'
 		this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
@@ -212,10 +220,10 @@ class Game {
 	gameOver() {
 		clearInterval(this.intervalId);
 		this.intervalId = null;
-		this.ctx.font = "30px Arial";
+		this.ctx.font = "40px Arial";
 		this.ctx.fillStyle = "white";
 		this.ctx.textAlign = "center";
-		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 3);
+		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 5);
 		const dataBoardNode = document.getElementById("data-board");
 		dataBoardNode.classList.add('visibility');
 		const donate = document.getElementById('green')

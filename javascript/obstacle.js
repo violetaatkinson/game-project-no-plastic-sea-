@@ -22,6 +22,10 @@ class Obstacle {
         this.x += this.vx
        
     }
+
+    isVisible() {
+        return this.x + this.w >= 0
+    }
     
     collide(el) {
         const collideX = el.x + el.w > this.x && el.x < this.x + this.w
