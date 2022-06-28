@@ -7,7 +7,11 @@
     width: 700px;
     height: 400px;
     margin-left: 15px;
-    border: 10px solid red;
+   
+  }
+
+  .canvas{
+    background-color: #296194;
   }
 
   #data-board {
@@ -38,28 +42,29 @@
   }
 
   #start-btn {
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: 20px;
-    padding: 12px 30px;
-    border-radius: 8px;
-    border-color: #3a7bd5;
-    background: #3a7bd5;
-    background: -webkit-linear-gradient(to right, #3a7bd5, #3a6073);
-    background: linear-gradient(to right, #3a7bd5, #3a6073);
     color: white;
-    font-size: 12px;
-    letter-spacing: 1.5px;
+    font-size: 15px;
+    letter-spacing: 2px;
     font-weight: 400;
     font-family: 'Press Start 2P', cursive;
+    text-shadow: 2.5px 2.5px #558ABB;
   }
+
+  #start-btn:hover {
+  color: rgb(32, 32, 175);
+    
+}
 
   #buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     padding: 0px 80px 0px 80px;
     margin-left: 10px;
+    margin-top: -15px;
 
   }
 
