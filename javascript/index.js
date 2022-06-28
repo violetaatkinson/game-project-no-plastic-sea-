@@ -6,6 +6,7 @@ const containerHearts = document.getElementById('hearts')
 const buttonsBoardNode = document.getElementById('buttons-board');
 const dataBoardNode = document.getElementById("data-board");
 
+		
 
 startBtn.addEventListener('click', () => {
   if (game.intervalId === null) {
@@ -17,6 +18,7 @@ startBtn.addEventListener('click', () => {
     }
   }
 })
+
 
 
 

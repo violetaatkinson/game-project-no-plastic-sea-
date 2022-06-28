@@ -7,10 +7,10 @@
     width: 700px;
     height: 400px;
     margin-left: 15px;
-   
+
   }
 
-  .canvas{
+  .canvas {
     background-color: #296194;
   }
 
@@ -53,9 +53,9 @@
   }
 
   #start-btn:hover {
-  color: rgb(32, 32, 175);
-    
-}
+    color: rgb(32, 32, 175);
+
+  }
 
   #buttons {
     display: flex;
@@ -67,6 +67,24 @@
     margin-top: -15px;
 
   }
+
+  .donate a {
+    margin-left: 260px;
+    display: inline;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 2px;
+    background: radial-gradient(circle at -1% 57.5%, rgb(7 ,69 ,33) 0%, rgb(29, 85 , 52) 90%);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 8px;
+   
+  }
+
 
   .container {
     display: flex;
@@ -108,4 +126,3 @@
   .visibility {
     visibility: hidden;
   }
-  

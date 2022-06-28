@@ -218,5 +218,7 @@ class Game {
 		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 3);
 		const dataBoardNode = document.getElementById("data-board");
 		dataBoardNode.classList.add('visibility');
+		const donate = document.getElementById('green')
+		donate.classList.remove('visibility')
 	}
 }
