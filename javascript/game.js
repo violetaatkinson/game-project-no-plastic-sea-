@@ -97,7 +97,7 @@ class Game {
 
 
 	addTrash() {
-		const trasharr = ["mask", "can", "water", "coke", "bag", "garbage"];
+		const trasharr = ["mask", "beer", "water", "pepsi", "bag", "garbage"];
 
 		this.trashes.push(
 			new Trash(this.ctx, trasharr[Math.floor(Math.random() * trasharr.length)])

@@ -1,8 +1,8 @@
 class Trash {
     constructor(ctx, type) {
         this.ctx = ctx;
-        this.h = 35;
-        this.w = 30;
+        this.h = 50;
+        this.w = 40;
         this.y = 0 - this.h;
         this.x = Math.floor(Math.random() * (CANVAS_WIDTH - 200) + 200);
         this.vy = +2;
@@ -11,12 +11,12 @@ class Trash {
         
         this.types = {
             // key: [url img, width, height, x, y]
-            mask: ['/img/trash-1.png', 30, 35, this.x, this.y],
-            can: ['/img/trash-2.png', 30, 35, this.x, this.y],
-            water: ['/img/trash-3.png', 30, 35, this.x, this.y],
-            coke: ['/img/trash-4.png', 30, 35, this.x, this.y],
-            bag: ['/img/trash-5.png', 30, 35, this.x, this.y],
-            garbage: ['/img/trash-2.png', 30, 35, this.x, this.y]
+            mask: ['/img/mask.png', 27, 27, this.x, this.y],
+            beer: ['/img/beer.png', 30, 30, this.x, this.y],
+            water: ['/img/water.png', 22, 32, this.x, this.y],
+            pepsi: ['/img/pepsi.png', 23, 31, this.x, this.y],
+            bag: ['/img/plastic-bag.png', 25, 31, this.x, this.y],
+            garbage: ['/img/garbage.png', 36, 36, this.x, this.y]
         }
 
         this.img = new Image();
