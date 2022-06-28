@@ -69,7 +69,7 @@
   }
 
   .donate a {
-    margin-left: 260px;
+    margin-left: 255px;
     display: inline;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
@@ -82,7 +82,8 @@
     text-align: center;
     padding: 15px 25px;
     border-radius: 8px;
-   
+   position: absolute;
+   margin-top: 250px;
   }
 
 
