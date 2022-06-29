@@ -180,6 +180,7 @@ class Game {
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				this.trashes.splice(index, 1);
 				this.updateScore();
+				this.trashSaved++;
 			}
 
 		});
@@ -222,6 +223,8 @@ class Game {
 				tur.isFree = true;
 				this.score += 10;
 				this.updateScore();
+				this.turtlesRescued++;
+
 			}
 		})
 	}
@@ -253,5 +256,8 @@ class Game {
 		dataBoardNode.classList.add('visibility');
 		const donate = document.getElementById('green')
 		donate.classList.remove('visibility')
+		const gameOverText = document.getElementById("over");
+		gameOverText.classList.remove('visibility')
+
 	}
 }

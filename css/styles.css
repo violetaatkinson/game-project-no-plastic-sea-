@@ -19,6 +19,12 @@
     justify-content: space-between;
   }
 
+#buttons-board{
+  position: absolute;
+  top: 10%;
+  left:80px;
+}
+
   html {
     height: 100%;
     width: 100%;
@@ -70,7 +76,7 @@
   }
 
   .donate a {
-    margin-left: 258px;
+    margin-left: 240px;
     display: inline;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
@@ -81,12 +87,26 @@
     background: radial-gradient(circle at -1% 57.5%, rgb(7, 69, 33) 0%, rgb(29, 85, 52) 90%);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     text-align: center;
-    padding: 15px 25px;
+    padding: 15px 35px;
     border-radius: 8px;
     position: absolute;
     margin-top: 250px;
   }
 
+  .text-gameOver {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-left: 249px;
+    margin-top: 110px;
+    
+  }
+
+  .trash-saved {
+ padding-top: 40px;
+  }
 
   .container {
     display: flex;
