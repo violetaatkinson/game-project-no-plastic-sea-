@@ -57,6 +57,7 @@
 
   }
 
+  
   #buttons {
     display: flex;
     flex-direction: column;
@@ -77,13 +78,13 @@
     font-weight: 400;
     font-size: 12px;
     letter-spacing: 2px;
-    background: radial-gradient(circle at -1% 57.5%, rgb(7 ,69 ,33) 0%, rgb(29, 85 , 52) 90%);
+    background: radial-gradient(circle at -1% 57.5%, rgb(7, 69, 33) 0%, rgb(29, 85, 52) 90%);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     text-align: center;
     padding: 15px 25px;
     border-radius: 8px;
-   position: absolute;
-   margin-top: 250px;
+    position: absolute;
+    margin-top: 250px;
   }
 
 

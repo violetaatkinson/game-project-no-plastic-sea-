@@ -34,7 +34,7 @@ class Trash {
     }
 
     isVisible() {
-        return this.x + this.w >= 0
+        return this.y <= this.ctx.canvas.height;
     }
 
     collideWidth(el) {

@@ -22,6 +22,8 @@ class Game {
 		this.sound = new Audio();
 		this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
 
+		this.turtlesRescued = 0;
+		this.trashRemoved = 0;
 	}
 
 	start() {
@@ -60,6 +62,7 @@ class Game {
 				this.modifyHealth();
 			}
 		}, 1000 / 60);
+		console.log(this.score)
 	}
 
 	clear() {
@@ -76,6 +79,7 @@ class Game {
 	}
 
 	draw() {
+		this.clearArrays();
 		this.background.draw();
 		this.submarine.draw();
 		this.obstacles.forEach((obs) => obs.draw());
@@ -118,10 +122,16 @@ class Game {
 	}
 
 
-	clearArays() {
+	clearArrays() {
+		const prevTrashLength = this.trashes.length;
 		this.trashes = this.trashes.filter((trs) => trs.isVisible());
+		if(prevTrashLength > this.trashes.length) {
+			this.score -= 5;
+			this.updateScore();
+		}
 		this.obstacles = this.obstacles.filter((obs) => obs.isVisible());
 		this.healths = this.healths.filter((hls) => hls.isVisible())
+		// comparar longitud del array (contando solo las que tienen isFree a false) antes y despu'es
 		this.turtles = this.turtles.filter((tur) => tur.isVisible())
 	}
 
@@ -161,8 +171,9 @@ class Game {
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				this.trashes.splice(index, 1);
-				this.score += 10
+				this.updateScore();
 			}
+
 		});
 
 		// submarine colision with hearts and toxins
@@ -182,7 +193,6 @@ class Game {
 				this.obstacles.splice(index, 1)
 				this.removeLife()
 
-				console.log('message')
 
 			}
 			if (this.submarine.health <= 0) {
@@ -202,9 +212,16 @@ class Game {
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				tur.isFree = true;
-				this.score += 10
+				this.score += 20;
+				this.updateScore();
 			}
 		})
+	}
+
+
+	updateScore() {
+		// Get points
+		const pointsNode = document.querySelector('#points').innerText = this.score;
 	}
 
 	// When game over all canvas becomes black

@@ -31,7 +31,7 @@ class Turtles {
 	}
 
 	isVisible() {
-        return this.x + this.w >= 0
+        return this.x + this.w >= 0;
     }
 
 	collide(el) {
