@@ -28,7 +28,7 @@ startBtn.addEventListener('click', () => {
 
 
 
-//sumar 10 puntos cada vez que disparo a una basura pero si pasa el canvas restar 5 puntos
+
 // sumar 20 puntos si rescato una tortuga, restar 10 si pasa el canvas con plastico
 // al final del juego contar cuantas basuras he salvado y lo mismo con las tortugas
 // cuando apreto how to play desplegar imagen de las instrucciones de como jugar

@@ -23,7 +23,7 @@ class Game {
 		this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
 
 		this.turtlesRescued = 0;
-		this.trashRemoved = 0;
+		this.trashSaved = 0;
 	}
 
 	start() {
@@ -131,8 +131,16 @@ class Game {
 		}
 		this.obstacles = this.obstacles.filter((obs) => obs.isVisible());
 		this.healths = this.healths.filter((hls) => hls.isVisible())
-		// comparar longitud del array (contando solo las que tienen isFree a false) antes y despu'es
-		this.turtles = this.turtles.filter((tur) => tur.isVisible())
+		this.turtles = this.turtles.filter((tur) => {
+			if(!tur.isVisible()) {
+				if(!tur.isFree) {
+					this.score -= 10;
+					this.updateScore();
+				}
+				return false;
+			}
+			return true;
+		})
 	}
 
 
@@ -212,7 +220,7 @@ class Game {
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				tur.isFree = true;
-				this.score += 20;
+				this.score += 10;
 				this.updateScore();
 			}
 		})
@@ -220,7 +228,7 @@ class Game {
 
 
 	updateScore() {
-		// Get points
+		
 		const pointsNode = document.querySelector('#points').innerText = this.score;
 	}
 
