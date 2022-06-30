@@ -179,6 +179,7 @@ class Game {
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				this.trashes.splice(index, 1);
+				this.score += 10;
 				this.updateScore();
 				this.trashSaved++;
 			}
@@ -221,7 +222,7 @@ class Game {
 
 			if (prevTorpedosLength !== this.submarine.weapon.torpedos.length) {
 				tur.isFree = true;
-				this.score += 10;
+				this.score += 20;
 				this.updateScore();
 				this.turtlesRescued++;
 
@@ -233,10 +234,11 @@ class Game {
 	updateScore() {
 		const pointsNode = document.querySelector('#points').innerText = this.score;
 	}
-
+	
 	updateText(){
 		const turtlesSaved = document.querySelector('#tur').innerText = this.turtlesRescued;
 		const trashRemoved = document.querySelector('#tr').innerText = this.trashSaved;
+		const score = document.querySelector('#total').innerText = this.score;
 	}
 
 	// When game over all canvas becomes black
@@ -252,7 +254,7 @@ class Game {
 	gameOver() {
 		clearInterval(this.intervalId);
 		this.intervalId = null;
-		this.ctx.font = "40px Arial";
+		this.ctx.font = "45px Arial";
 		this.ctx.fillStyle = "white";
 		this.ctx.textAlign = "center";
 		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 5);

@@ -22,7 +22,7 @@
 #menu-board{
   position: absolute;
   top: 10%;
-  left:80px;
+  left:90px;
 }
 
   html {
@@ -76,7 +76,7 @@
   }
 
   .donate a {
-    margin-left: 240px;
+    margin-left: 247px;
     display: inline;
     text-decoration: none;
     font-family: 'Press Start 2P', cursive;
@@ -87,26 +87,32 @@
     background: radial-gradient(circle at -1% 57.5%, rgb(7, 69, 33) 0%, rgb(29, 85, 52) 90%);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     text-align: center;
-    padding: 15px 35px;
+    padding: 15px 30px;
     border-radius: 8px;
     position: absolute;
-    margin-top: 250px;
+    margin-top: 255px;
   }
 
   .text-gameOver {
     font-family: 'Press Start 2P', cursive;
     color: white;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 3px;
-    margin-left: 249px;
-    margin-top: 110px;
+    margin-left: 248px;
+    margin-top: 90px;
     
   }
 
   .trash-saved {
- padding-top: 40px;
+  padding-top: 35px;
   }
+
+  .tur-saved{
+    padding-top: 35px;
+  }
+
+
 
   .container {
     display: flex;
