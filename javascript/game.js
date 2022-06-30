@@ -254,7 +254,7 @@ class Game {
 	gameOver() {
 		clearInterval(this.intervalId);
 		this.intervalId = null;
-		this.ctx.font = "45px Arial";
+		this.ctx.font = "45px Arial ";
 		this.ctx.fillStyle = "white";
 		this.ctx.textAlign = "center";
 		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 5);
