@@ -2,7 +2,7 @@ const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext("2d")
 const game = new Game(ctx)
 const containerHearts = document.getElementById('hearts')
-const buttonsBoardNode = document.getElementById('buttons-board');
+const buttonsBoardNode = document.getElementById('menu-board');
 const dataBoardNode = document.getElementById("data-board");
 
 // Main buttons

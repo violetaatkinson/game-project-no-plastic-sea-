@@ -125,15 +125,15 @@ class Game {
 	clearArrays() {
 		const prevTrashLength = this.trashes.length;
 		this.trashes = this.trashes.filter((trs) => trs.isVisible());
-		if(prevTrashLength > this.trashes.length) {
+		if (prevTrashLength > this.trashes.length) {
 			this.score -= 5;
 			this.updateScore();
 		}
 		this.obstacles = this.obstacles.filter((obs) => obs.isVisible());
 		this.healths = this.healths.filter((hls) => hls.isVisible())
 		this.turtles = this.turtles.filter((tur) => {
-			if(!tur.isVisible()) {
-				if(!tur.isFree) {
+			if (!tur.isVisible()) {
+				if (!tur.isFree) {
 					this.score -= 10;
 					this.updateScore();
 				}
@@ -231,8 +231,12 @@ class Game {
 
 
 	updateScore() {
-		
 		const pointsNode = document.querySelector('#points').innerText = this.score;
+	}
+
+	updateText(){
+		const turtlesSaved = document.querySelector('#tur').innerText = this.turtlesRescued;
+		const trashRemoved = document.querySelector('#tr').innerText = this.trashSaved;
 	}
 
 	// When game over all canvas becomes black
@@ -254,10 +258,11 @@ class Game {
 		this.ctx.fillText("GAME OVER", this.ctx.canvas.width / 2, this.ctx.canvas.height / 5);
 		const dataBoardNode = document.getElementById("data-board");
 		dataBoardNode.classList.add('visibility');
-		const donate = document.getElementById('green')
-		donate.classList.remove('visibility')
+		const donate = document.getElementById('green');
+		donate.classList.remove('visibility');
 		const gameOverText = document.getElementById("over");
-		gameOverText.classList.remove('visibility')
+		gameOverText.classList.remove('visibility');
+		this.updateText();
 
 	}
 }
