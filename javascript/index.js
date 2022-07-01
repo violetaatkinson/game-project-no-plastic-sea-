@@ -29,7 +29,5 @@ startBtn.addEventListener('click', () => {
 
 
 
-
-// al final del juego contar cuantas basuras he salvado y lo mismo con las tortugas
 // cuando apreto how to play desplegar imagen de las instrucciones de como jugar
 // lo mismo para about y tocar algo para volver al menu principal del juego
