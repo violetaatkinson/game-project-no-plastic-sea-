@@ -6,9 +6,9 @@ class Turtles {
 		this.y = Math.floor(Math.random() * (CANVAS_HEIGHT - this.h));
 		this.x = 700;
 		this.img = new Image();
-		this.img.src = "/img/turtle.png";
+		this.img.src = "./img/turtle.png";
 		this.plasticImg = new Image();
-		this.plasticImg.src = "/img/plastic.png";
+		this.plasticImg.src = "./img/plastic.png";
 		this.vx = -1.5;
 		this.isFree = false;
 	}

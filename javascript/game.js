@@ -20,7 +20,7 @@ class Game {
 
 		this.score = 0;
 		this.sound = new Audio();
-		this.sound.src = '/audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
+		this.sound.src = './audio/01. Yellow Submarine (Original Uk Mono Mix).mp3';
 
 		this.turtlesRescued = 0;
 		this.trashSaved = 0;
@@ -150,7 +150,7 @@ class Game {
 			const containerHearts = document.getElementById('hearts')
 			const newLife = document.createElement('img')
 			newLife.classList.add('life')
-			newLife.src = '/img/life.png'
+			newLife.src = './img/life.png'
 			newLife.alt = 'life'
 			containerHearts.appendChild(newLife)
 			this.submarine.health++

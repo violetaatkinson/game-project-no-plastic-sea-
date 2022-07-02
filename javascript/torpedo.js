@@ -7,7 +7,7 @@ class Torpedo{
         this.h = 36;
         this.vx = 3;
         this.img = new Image();
-        this.img.src = "/img/torpedo.png";
+        this.img.src = "./img/torpedo.png";
     }
 
     draw() {

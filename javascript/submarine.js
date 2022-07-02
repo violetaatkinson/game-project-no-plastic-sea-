@@ -8,9 +8,9 @@ class Submarine {
     this.h = 87;
     this.color = 'blue';
     this.img = new Image();
-    this.img.src = "/img/submarine.png";
+    this.img.src = "./img/submarine.png";
     this.injuredSubmarine = new Image();
-		this.injuredSubmarine.src = "/img/submarine - injured.png";
+		this.injuredSubmarine.src = "./img/submarine - injured.png";
     this.vx = 0;
     this.vy = 0;
 

@@ -6,7 +6,7 @@ class Obstacle {
         this.y= Math.floor(Math.random() * (CANVAS_HEIGHT - 200) + 0);
         this.x = 700 ;
         this.img = new Image();
-        this.img.src = "/img/orca.png";
+        this.img.src = "./img/orca.png";
         this.vx = -1.5;
         this.vy = 2
 

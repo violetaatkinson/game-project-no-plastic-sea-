@@ -10,8 +10,8 @@ class Health {
 
         this.types = {
             // key: [url img, width, height, x, y]
-            life: ['/img/life.png', 30, 35, this.x, this.y],
-            hazard: ['/img/hazard.png', 30, 35, this.x, this.y]
+            life: ['./img/life.png', 30, 35, this.x, this.y],
+            hazard: ['./img/hazard.png', 30, 35, this.x, this.y]
         }
 
         this.img = new Image();
