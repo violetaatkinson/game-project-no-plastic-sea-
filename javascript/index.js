@@ -12,6 +12,9 @@ const aboutBtn = document.getElementById('about-btn')
 const imgH =  document.getElementById('how')
 const imgA = document.getElementById('about')
 
+const playAgain = document.getElementById('play')
+const donate = document.getElementById('donate')
+
 
 // On click start 
 startBtn.addEventListener('click', () => {
@@ -51,4 +54,9 @@ imgA.addEventListener('click', () => {
 })
 
 
+// On click play again takes you to main menu
+
+playAgain.addEventListener('click', () => {
+  window.location.reload()
+})
 

@@ -59,7 +59,7 @@ class Submarine {
       if (this.x + this.w >= this.ctx.canvas.width) {
         this.vx = 0;
       } else {
-        this.vx = 2
+        this.vx = 2.5
 
       }
 
@@ -67,7 +67,7 @@ class Submarine {
       if (this.x <= 0) {
         this.vx = 0
       } else {
-        this.vx = -2
+        this.vx = -3.5
       }
     } else {
       this.vx = 0
@@ -118,3 +118,4 @@ class Submarine {
     this.weapon.draw()
   }
 }
+
