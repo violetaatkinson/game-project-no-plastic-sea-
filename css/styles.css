@@ -48,7 +48,7 @@
 
   }
 
-  #start-btn {
+  .btn {
     margin-top: 25px;
     margin-bottom: 20px;
     color: white;
@@ -59,7 +59,7 @@
     text-shadow: 2.5px 2.5px #558ABB;
   }
 
-  #start-btn:hover {
+ .btn:hover {
     color: rgb(32, 32, 175);
 
   }
@@ -154,4 +154,18 @@
 
   .visibility {
     visibility: hidden;
+  }
+
+  .how {
+    position: absolute;
+    top: 0%;
+    height: 400px;
+    width: 700px;
+  }
+
+  .about {
+    position: absolute;
+    top: 0%;
+    height: 400px;
+    width: 700px;
   }

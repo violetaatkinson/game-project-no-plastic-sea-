@@ -7,8 +7,10 @@ const dataBoardNode = document.getElementById("data-board");
 
 // Main buttons
 const startBtn = document.getElementById('start-btn')
-const howBtn = document.getElementsByClassName('how-btn')
-const aboutBtn = document.getElementsByClassName('about-btn')		
+const howBtn = document.getElementById('how-btn')
+const aboutBtn = document.getElementById('about-btn')		
+const imgH =  document.getElementById('how')
+const imgA = document.getElementById('about')
 
 
 // On click start 
@@ -24,10 +26,29 @@ startBtn.addEventListener('click', () => {
 })
 
 
+// On click How to play
+
+howBtn.addEventListener('click', () => {
+  imgH.classList.remove('visibility')
+})
+
+// On click img - How to play
+
+imgH.addEventListener('click', () => {
+  imgH.classList.add('visibility')
+})
+
+// On click About the game
+
+aboutBtn.addEventListener('click', () => {
+  imgA.classList.remove('visibility')
+})
+
+// On click img - About the game
+
+imgA.addEventListener('click', () => {
+  imgA.classList.add('visibility')
+})
 
 
 
-
-
-// cuando apreto how to play desplegar imagen de las instrucciones de como jugar
-// lo mismo para about y tocar algo para volver al menu principal del juego
