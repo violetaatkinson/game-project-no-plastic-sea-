@@ -10,7 +10,7 @@ class Game {
 		this.obstacles = [];
 		this.turtles = []
 
-		this.submarine = new Submarine(this.ctx);
+		this.submarine = new Submarine(this.ctx, this);
 
 		// Count of objects
 		this.tickObstacle = 0;
@@ -24,6 +24,7 @@ class Game {
 
 		this.turtlesRescued = 0;
 		this.trashSaved = 0;
+		this.isInjured = false;
 	}
 
 	start() {
@@ -193,6 +194,7 @@ class Game {
 				this.createLife()
 			} else if (hls.collide(this.submarine) && hls.type === 'hazard') {
 				this.healths.splice(index, 1)
+				this.isInjured = true;
 				this.removeLife()
 			}
 		})
@@ -202,10 +204,12 @@ class Game {
 			if (obs.collide(this.submarine)) {
 				this.obstacles.splice(index, 1)
 				this.removeLife()
+				this.isInjured = true;
 
 
 			}
 			if (this.submarine.health <= 0) {
+				this.isInjured = true;
 				this.endGame()
 				this.gameOver()
 			}

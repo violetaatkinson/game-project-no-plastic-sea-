@@ -1,6 +1,7 @@
 class Submarine {
-  constructor(ctx) {
+  constructor(ctx, game) {
     this.ctx = ctx;
+    this.game = game;
     this.x = CANVAS_WIDTH / 6
     this.y = CANVAS_HEIGHT / 2
     this.w = 164;
@@ -8,11 +9,15 @@ class Submarine {
     this.color = 'blue';
     this.img = new Image();
     this.img.src = "/img/submarine.png";
+    this.injuredSubmarine = new Image();
+		this.injuredSubmarine.src = "/img/submarine - injured.png";
     this.vx = 0;
     this.vy = 0;
 
     this.health = 7;
     this.damage = 1;
+
+    this.isInjured = false;
 
     this.actions = {
       up: false,
@@ -59,7 +64,7 @@ class Submarine {
       if (this.x + this.w >= this.ctx.canvas.width) {
         this.vx = 0;
       } else {
-        this.vx = 2.5
+        this.vx = 4
 
       }
 
@@ -67,7 +72,7 @@ class Submarine {
       if (this.x <= 0) {
         this.vx = 0
       } else {
-        this.vx = -3.5
+        this.vx = -4
       }
     } else {
       this.vx = 0
@@ -114,8 +119,18 @@ class Submarine {
   }
 
   draw() {
-    this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)
+    
     this.weapon.draw()
+    if (!this.game.isInjured) {
+      this.ctx.drawImage(this.img, this.x, this.y, this.w, this.h)}
+
+      else {
+      this.ctx.drawImage(this.injuredSubmarine, this.x, this.y, this.w, this.h)
+      setTimeout(() => {
+        this.game.isInjured = false;
+      },500)
+      
+    }
   }
 }
 
