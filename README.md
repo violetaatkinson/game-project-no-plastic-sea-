@@ -10,6 +10,8 @@ but I have also put a button that directs you to green peace to make a donation 
 
 Hope you enjoy this game!!!!
 
-
+Here is the link to play : https://violetaatkinson.github.io/game-project-no-plastic-sea-/
 
 <img width="419" alt="image" src="https://user-images.githubusercontent.com/58277625/176998342-72551939-e12d-494c-94a9-aeca1206f5fd.png">
+
+
